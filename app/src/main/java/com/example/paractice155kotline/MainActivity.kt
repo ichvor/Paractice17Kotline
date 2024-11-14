@@ -9,6 +9,7 @@ import android.widget.Switch
 import androidx.appcompat.app.AppCompatDelegate
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+title = "Ты клоуна видел??"
         val switch = findViewById<Switch>(R.id.switch1)
 
         var currentTheme = AppCompatDelegate.getDefaultNightMode()
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         switch.setOnCheckedChangeListener { _, isChecked ->
             setTheme(isChecked)
+            Toast.makeText(this,"Молодец, а вот костя не видел!", Toast.LENGTH_LONG).show()
         }
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -64,9 +66,11 @@ class MainActivity : AppCompatActivity() {
         if (isNightMode) {
             menuItem?.title = "Сменить на светлую"
             menuItem?.setIcon(R.drawable.ic_dark_mode)
+            Toast.makeText(this,"Так он в приоре не мог его видеть!!!", Toast.LENGTH_LONG).show()
         } else {
             menuItem?.title = "Сменить на тёмную"
             menuItem?.setIcon(R.drawable.ic_light_mode)
+            Toast.makeText(this,"Он искал, искал, но клоун очень хорошо спрятался!!", Toast.LENGTH_LONG).show()
         }
     }
 
